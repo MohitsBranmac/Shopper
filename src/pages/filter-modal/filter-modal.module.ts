@@ -9,5 +9,8 @@ import { FilterModalPage } from './filter-modal';
   imports: [
     IonicPageModule.forChild(FilterModalPage),
   ],
+  entryComponents: [
+    FilterModalPage
+  ]
 })
 export class FilterModalPageModule {}

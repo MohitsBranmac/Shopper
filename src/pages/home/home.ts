@@ -32,6 +32,6 @@ export class HomePage {
   }
 
   openFilterModal () {
-    
+    // let openFilterModal = this.modalCtrl.create ()
   }
 }

@@ -7,8 +7,9 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { ProductDetailPage } from './../pages/product-detail/product-detail';
+import { ProductDetailPageModule } from './../pages/product-detail/product-detail.module';
 import { TabsPage } from '../pages/tabs/tabs';
+import { FilterModalPageModule } from './../pages/filter-modal/filter-modal.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,11 +34,9 @@ import { ProductProvider } from '../providers/product/product';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
-    ProductDetailPage
+    TabsPage
   ],
   providers: [
-    ProductProvider,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
