@@ -37,10 +37,10 @@ import { ProductProvider } from '../providers/product/product';
     ProductDetailPage
   ],
   providers: [
+    ProductProvider,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProductProvider
   ]
 })
 export class AppModule {}

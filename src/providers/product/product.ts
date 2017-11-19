@@ -8,7 +8,7 @@ export class ProductProvider {
     console.log('Hello ProductProvider Provider');
   }
 
-  getProducts () {
-    return this.http.get ('/assets/data.json')
+  getProducts(){
+    return this.http.get('/assets/data.json')
   }
 }
