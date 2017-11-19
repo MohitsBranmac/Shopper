@@ -1,3 +1,4 @@
+import { ProductDetailPage } from './../product-detail/product-detail';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
@@ -21,5 +22,11 @@ export class HomePage {
       .subscribe ((response) => {
         this.allProducts = response;
       })
+  }
+
+  goToProductDetailpage (product) {
+    this.navCtrl.push (ProductDetailPage, {
+      productDetails: product
+    })
   }
 }
