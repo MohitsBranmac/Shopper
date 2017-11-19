@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { ProductDetailPage } from './../pages/product-detail/product-detail';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,9 +23,9 @@ import { ProductProvider } from '../providers/product/product';
     TabsPage
   ],
   imports: [
-    HttpClient,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClient
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +33,8 @@ import { ProductProvider } from '../providers/product/product';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ProductDetailPage
   ],
   providers: [
     StatusBar,
