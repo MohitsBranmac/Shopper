@@ -2,6 +2,7 @@ import { ProductDetailPage } from './../product-detail/product-detail';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
+import { FilterModalPage } from '../filter-modal/filter-modal';
 
 @Component({
   selector: 'page-home',
@@ -32,6 +33,7 @@ export class HomePage {
   }
 
   openFilterModal () {
-    // let openFilterModal = this.modalCtrl.create ()
+    let openFilterModal = this.modalCtrl.create (FilterModalPage)
+    openFilterModal.present ()
   }
 }
