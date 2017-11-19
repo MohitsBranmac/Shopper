@@ -1,6 +1,6 @@
 import { ProductDetailPage } from './../product-detail/product-detail';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
 
 @Component({
@@ -12,7 +12,8 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private productService: ProductProvider
+    private productService: ProductProvider,
+    private modalCtrl: ModalController
   ) {
 
   }
@@ -28,5 +29,9 @@ export class HomePage {
     this.navCtrl.push (ProductDetailPage, {
       productDetails: product
     })
+  }
+
+  openFilterModal () {
+    
   }
 }
