@@ -9,7 +9,9 @@ import { FilterModalPage } from '../filter-modal/filter-modal';
   templateUrl: 'home.html',
 })
 export class HomePage {
-  public allProducts: any = [];
+  public allProducts: any = []
+  public femaleSelected: boolean
+  public maleSelected: boolean
 
   constructor(
     public navCtrl: NavController,
@@ -33,7 +35,39 @@ export class HomePage {
   }
 
   openFilterModal () {
-    let openFilterModal = this.modalCtrl.create (FilterModalPage)
+    let filterStateFromMainPage: Object = {
+      maleSelected: this.maleSelected,
+      femaleSelected: this.femaleSelected
+    }
+
+    let openFilterModal = this.modalCtrl.create (FilterModalPage, filterStateFromMainPage)
+    
+    openFilterModal.onDidDismiss ((filterState) => {
+      this.femaleSelected = filterState.femaleSelected
+      this.maleSelected = filterState.maleSelected
+
+      this.productService.getProducts ()
+        .subscribe ((allProducts) => {
+          let products: any = allProducts
+          
+          if (filterState.maleSelected && filterState.femaleSelected) {
+            this.allProducts = products
+            return
+          } else if (!filterState.maleSelected && !filterState.femaleSelected) {
+            this.allProducts = []
+            return
+          } else if (!filterState.maleSelected && filterState.femaleSelected) {
+            this.allProducts = products.filter ((product) => {
+              return product.gender !== "male"
+            })
+          } else {
+            this.allProducts = products.filter ((product) => {
+              return product.gender !== "female"
+            })
+          }
+
+        })
+    })
     openFilterModal.present ()
   }
 }
